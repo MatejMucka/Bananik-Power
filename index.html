@@ -1,0 +1,116 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Variable Power Supply Control
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="bg-gray-100 font-roboto">
+  <header class="bg-blue-600 text-white p-4">
+   <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">
+     Variable Power Supply Control
+    </h1>
+    <nav>
+     <ul class="flex space-x-4">
+      <li>
+       <a class="hover:underline" href="#">
+        Home
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Settings
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        About
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <main class="container mx-auto p-4">
+   <section class="bg-white p-6 rounded shadow-md">
+    <h2 class="text-xl font-bold mb-4">
+     Control Panel
+    </h2>
+    <div class="flex flex-col md:flex-row md:space-x-4">
+     <div class="flex-1 mb-4 md:mb-0">
+      <label class="block text-sm font-medium text-gray-700" for="voltage">
+       Voltage (V)
+      </label>
+      <input class="mt-1 block w-full p-2 border border-gray-300 rounded-md" id="voltage" name="voltage" placeholder="Enter voltage" type="number"/>
+     </div>
+     <div class="flex-1">
+      <label class="block text-sm font-medium text-gray-700" for="current">
+       Current (A)
+      </label>
+      <input class="mt-1 block w-full p-2 border border-gray-300 rounded-md" id="current" name="current" placeholder="Enter current" type="number"/>
+     </div>
+    </div>
+    <div class="mt-4">
+     <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      Set Values
+     </button>
+    </div>
+   </section>
+   <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4">
+     Status
+    </h2>
+    <div class="bg-white p-6 rounded shadow-md">
+     <div class="flex items-center space-x-4">
+      <img alt="Placeholder image of a power supply unit" class="w-24 h-24 rounded" height="100" src="https://storage.googleapis.com/a1aa/image/k3IGsXKZe4VpDirLwdyzXTvPHKl16LxMUd57KHLguosmQAAKA.jpg" width="100"/>
+      <div>
+       <p class="text-sm text-gray-700">
+        Voltage:
+        <span id="status-voltage">
+         0
+        </span>
+        V
+       </p>
+       <p class="text-sm text-gray-700">
+        Current:
+        <span id="status-current">
+         0
+        </span>
+        A
+       </p>
+       <p class="text-sm text-gray-700">
+        Power:
+        <span id="status-power">
+         0
+        </span>
+        W
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="bg-gray-800 text-white p-4 mt-8">
+   <div class="container mx-auto text-center">
+    <p>
+     © 2023 Variable Power Supply Control. All rights reserved.
+    </p>
+   </div>
+  </footer>
+  <script>
+   document.querySelector('button').addEventListener('click', function() {
+     const voltage = document.getElementById('voltage').value;
+     const current = document.getElementById('current').value;
+     document.getElementById('status-voltage').textContent = voltage;
+     document.getElementById('status-current').textContent = current;
+     document.getElementById('status-power').textContent = (voltage * current).toFixed(2);
+   });
+  </script>
+ </body>
+</html>
